@@ -120,6 +120,7 @@ for(var i = 0; i < formData.length; i++){
     var input = document.createElement('textarea');
   }
 
+//dropdown menu
   else if (formData[i].type === 'select'){
     var input = document.createElement('select');
     for (var j = 0; j < options.length; j++){
@@ -129,14 +130,6 @@ for(var i = 0; i < formData.length; i++){
       option.value = options[j].value;
     }
     }
-    else if (formData[i] === 'input'){
-      console.log(input);
-      var italic = document.createElement('i');
-      input.appendChild(italic);
-    }
-
-
-
 
 
   container.appendChild(input);
@@ -147,7 +140,9 @@ for(var i = 0; i < formData.length; i++){
 }
 
 
-
+// var fontAwesome = document.createElement('i');
+// fontAwesome.className = "fa " + faImage;
+// container.appendChild(fontAwesome);
 
 
 
