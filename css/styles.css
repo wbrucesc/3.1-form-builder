@@ -46,8 +46,8 @@
 }
 
 .wrapper .fields textarea {
-  height: 125px;
-  padding: 15px;
+  height: 100px;
+  padding-top: 10px;
 }
 
 .wrapper .footer {

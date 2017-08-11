@@ -36,8 +36,7 @@ let formData = [
     "label": "Select Language",
     "id": "user-language",
     "icon": "",
-    "options": [
-      {
+    "options": [{
         "label": "English",
         "value": "EN"
       },
@@ -59,6 +58,7 @@ let formData = [
       }
     ]
   },
+
   {
     "type": "textarea",
     "label": "Your Comment",
@@ -85,14 +85,14 @@ let formData = [
 // HINTS:
 // As you can see, we access the first element in the array
 // with [0] and then grab the property "label" using the "." operator
-( function(){
+(function() {
   // Select the first element from the array
-  let first = formData[ 0 ];
+  let first = formData[0];
   // Log the first object
-  console.log( first );
+  console.log(first);
   // Log the string "First Name"
-  console.log( first.label );
-} )();
+  console.log(first.label);
+})();
 
 
 // -------- Your Code Goes Below this Line --------
@@ -107,7 +107,7 @@ let formData = [
 
 
 
-for(var i = 0; i < formData.length; i++){
+for (var i = 0; i < formData.length; i++) {
   var container = document.querySelector('.fields');
   var input = document.createElement('input');
   var icon = formData[i].icon;
@@ -116,25 +116,38 @@ for(var i = 0; i < formData.length; i++){
   var id = formData[i].id;
   var options = formData[i].options;
 
-  if (formData[i] === 'textarea'){
+  if (type === 'textarea') {
     var input = document.createElement('textarea');
+    input.className = "textArea";
+    container.appendChild(input);
   }
 
-//dropdown menu
-  else if (formData[i].type === 'select'){
+
+
+  //dropdown menu
+  else if (type === 'select') {
     var input = document.createElement('select');
-    for (var j = 0; j < options.length; j++){
+
+    var option = document.createElement('option');
+    input.appendChild(option);
+    option.textContent = label;
+    option.value = '';
+
+    for (var j = 0; j < options.length; j++) {
       var option = document.createElement('option');
       input.appendChild(option);
       option.textContent = options[j].label;
       option.value = options[j].value;
     }
-    }
-
+  }
+  var glyph = document.createElement('i');  //trying to create icon
+    glyph.className = "fa" + icon;
+    glyph.setAttribute = "aria-hidden = true";
+  input.appendChild(glyph);
 
   container.appendChild(input);
   input.placeholder = label;
-  input.icon = icon;
+  // input.icon = icon;
   input.type = type;
   input.options = options;
 }
